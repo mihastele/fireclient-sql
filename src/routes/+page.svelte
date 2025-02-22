@@ -55,7 +55,7 @@
   }
 </script>
 
-<main class="container mx-auto p-4 w-100">
+<main class="mx-auto p-4 w-full">
   <ConnectionForm config={connectionConfig} onConnect={connect} />
   <p class="mt-2 text-gray-600">{connectionStatus}</p>
   <div class="mt-4">
