@@ -1,7 +1,7 @@
 <script lang="ts">
   interface QueryResult {
     columns: string[];
-    rows: { 0: string[] }[]; // Array of objects, each with a '0' property holding the row data
+    rows: []; // Array of objects, each with a '0' property holding the row data
   }
 
   export let data: QueryResult;
@@ -17,10 +17,10 @@
       </tr>
     </thead>
     <tbody>
-      {#each data.rows as row}
+      {#each data.rows as row, rowIndex}
         <tr>
-          {#each row[0] as value}
-            <td>{value}</td>
+          {#each data.columns as column, columnIndex}
+            <td>{row[columnIndex]}</td>
           {/each}
         </tr>
       {/each}

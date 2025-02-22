@@ -46,6 +46,7 @@
         config: connectionConfig,
         query,
       });
+      console.log(queryResult);
     } catch (error: any) {
       queryResult = null;
       connectionStatus = `Query Error: ${error}`; // Show query errors
