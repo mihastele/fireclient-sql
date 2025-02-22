@@ -54,18 +54,25 @@
   }
 </script>
 
-<main>
+<main class="container mx-auto p-4 w-100">
   <ConnectionForm config={connectionConfig} onConnect={connect} />
-  <p>{connectionStatus}</p>
+  <p class="mt-2 text-gray-600">{connectionStatus}</p>
+  <div class="mt-4">
+    <label class="block text-sm font-medium text-gray-700"> SQL Query: </label>
+    <textarea
+      bind:value={query}
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 sm:text-sm"
+      rows="5"
+    ></textarea>
+  </div>
 
-  <label>
-    SQL Query:
-    <textarea bind:value={query}></textarea>
-  </label>
   <button
     on:click={runQuery}
-    disabled={!connectionStatus.startsWith("Successfully")}>Run Query</button
+    disabled={!connectionStatus.startsWith("Successfully")}
+    class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-gray-400"
   >
+    Run Query
+  </button>
 
   {#if queryResult}
     <TableView data={queryResult} />
